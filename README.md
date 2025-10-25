@@ -12,7 +12,7 @@ The goal of this repository is to demonstrate the deployment and management of w
 - **/scripts** – Shell, PHP, or SQL scripts used for setup and automation.  
 - **/config** – Configuration files for Apache, PHP, or MySQL services.  
 - **/CMS** – Example CMS deployments and practice projects.
-          📘 WordPress VPS Deployment Guide
+  - 📘 [WordPress VPS Deployment Guide](https://github.com/jpmc0805/IAW/blob/main/CMS/wordpress-vps-guide.md)
 
 ---
 
