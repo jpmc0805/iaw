@@ -79,11 +79,11 @@ Visit: http://<your-server-ip>/joseph/wordpress and complete the setup wizard.
 ## 🌐 Step 5 — Create Free Subdomain (No-IP)
 1. Sign in to No-IP.  
 2. Create a host (A record):
-   - Host: josephitsolutions  
+   - Host: name-of-our-domain  
    - Domain: ddns.net  
    - IP: your VPS public IP
 
-Accessible at: http://josephitsolutions.ddns.net
+Accessible at: http://name-of-our-domain.ddns.net
 
 ---
 
@@ -91,30 +91,30 @@ Accessible at: http://josephitsolutions.ddns.net
 Create site config:
 
 ```bash
-sudo nano /etc/apache2/sites-available/josephitsolutions.conf
+sudo nano /etc/apache2/sites-available/name-of-our-domain.conf
 ```
 
 Example content:
 
 ```apache
 <VirtualHost *:80>
-    ServerName josephitsolutions.ddns.net
-    DocumentRoot /var/www/html/joseph/wordpress
+    ServerName name-of-our-domain.ddns.net
+    DocumentRoot /var/www/html/your-root
 
-    <Directory /var/www/html/joseph/wordpress>
+    <Directory /var/www/html/your-root>
         AllowOverride All
         Require all granted
     </Directory>
 
-    ErrorLog ${APACHE_LOG_DIR}/josephitsolutions_error.log
-    CustomLog ${APACHE_LOG_DIR}/josephitsolutions_access.log combined
+    ErrorLog ${APACHE_LOG_DIR}/name-of-our-domain_error.log
+    CustomLog ${APACHE_LOG_DIR}/name-of-our-domain_access.log combined
 </VirtualHost>
 ```
 
 Enable and reload Apache:
 
 ```bash
-sudo a2ensite josephitsolutions.conf
+sudo a2ensite name-of-our-domain.conf
 sudo systemctl reload apache2
 ```
 
@@ -137,7 +137,7 @@ sudo apt install certbot python3-certbot-apache
 Request and install certificate:
 
 ```bash
-sudo certbot --apache -d josephitsolutions.ddns.net
+sudo certbot --apache -d name-of-our-domain.ddns.net
 ```
 
 Test renewal (dry run):
@@ -152,8 +152,8 @@ sudo certbot renew --dry-run
 Add to wp-config.php (before "That's all, stop editing"):
 
 ```php
-define('WP_HOME', 'https://josephitsolutions.ddns.net');
-define('WP_SITEURL', 'https://josephitsolutions.ddns.net');
+define('WP_HOME', 'https://name-of-our-domain.ddns.net');
+define('WP_SITEURL', 'https://name-of-our-domain.ddns.net');
 ```
 
 Optional: enforce redirects via .htaccess or a plugin.
@@ -161,7 +161,7 @@ Optional: enforce redirects via .htaccess or a plugin.
 ---
 
 ## ✅ Final Result
-- Live site: https://josephitsolutions.ddns.net  
+- Live site: https://name-of-our-domain.ddns.net  
 - Secured with Let’s Encrypt TLS  
 - Accessible via free No-IP subdomain  
 - Manual, reproducible deployment
