@@ -57,14 +57,15 @@ Commands:
 
 ```bash
 cd /var/www/html
-mkdir -p joseph
-cd joseph
+mkdir -p dummy
+cd dummy
 wget https://es.wordpress.org/latest-es_ES.zip
 unzip latest-es_ES.zip
 sudo chown -R www-data:www-data wordpress
 ```
+www-data is apache user so it need to own the directory and its content in order it works.
 
-Visit: http://<your-server-ip>/joseph/wordpress and complete the setup wizard.
+Visit: http://<your-server-ip>/dummy/wordpress and complete the setup wizard.
 
 ---
 
